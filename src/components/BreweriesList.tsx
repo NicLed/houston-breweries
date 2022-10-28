@@ -21,10 +21,10 @@ export type BreweryType = {
   created_at: String,
 }
 
-const BreweriesList: React.FC<BreweryType> = ({ breweryList }) => {
+const BreweriesList: React.FC<BreweryType[]> = ({ breweryList }) => {
   return (
     <>
-      {breweryList.map((brewery: BreweryType, i) => {
+      {breweryList.map((brewery: BreweryType, i: Number) => {
         return <Brewery brewery={brewery} key={i}/>
       })}
     </>

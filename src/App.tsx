@@ -17,7 +17,7 @@ const App: React.FC = () => {
 
     return (
       <>
-      <h1>Houston Breweries</h1>
+        <h1>Houston Breweries</h1>
         <BreweriesList breweryList={breweryList} />
       </>
     );
