@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { getAllHoustonBreweries } from '../server/controllers/getAllHoustonBreweries';
+import BreweriesList from './components/BreweriesList';
 
 const App: React.FC = () => {
   const [ breweryList, setBreweryList ] = useState([]);
@@ -11,15 +12,13 @@ const App: React.FC = () => {
 
   const getHoustonBreweries = async () => {
     const houstonBreweries = await getAllHoustonBreweries();
-    console.log(houstonBreweries.data);
     setBreweryList(houstonBreweries.data);
   };
 
     return (
       <>
-        <h1>
-          Hello
-        </h1>
+      <h1>Houston Breweries</h1>
+        <BreweriesList breweryList={breweryList} />
       </>
     );
 }
