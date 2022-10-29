@@ -1,9 +1,9 @@
 import React from 'react';
 import { Brewery } from './Brewery';
-import { BreweryType, BreweriesListType } from '../types/types';
+import { BreweryType } from '../types/types';
 
 type BreweriesListProps = {
-  breweryList: BreweriesListType[],
+  breweryList: BreweryType[],
 }
 
 export const BreweriesList: React.FC<BreweriesListProps> = ({ breweryList }) => {

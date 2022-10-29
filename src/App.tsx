@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getAllHoustonBreweries } from '../server/controllers/getAllHoustonBreweries';
 import { BreweriesList } from './components/BreweriesList';
 import { MapView } from './components/MapView';
+import { BreweryType } from './types/types';
 
 const App: React.FC = () => {
   const [ breweryList, setBreweryList ] = useState([]);
