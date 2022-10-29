@@ -1,10 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { getAllHoustonBreweries } from '../server/controllers/getAllHoustonBreweries';
-import BreweriesList from './components/BreweriesList';
+import { BreweriesList } from './components/BreweriesList';
+import { MapView } from './components/MapView';
 
 const App: React.FC = () => {
   const [ breweryList, setBreweryList ] = useState([]);
+  const [ displayMap, setDisplayMap ] = useState(false);
 
   useEffect(() => {
     getHoustonBreweries();
@@ -18,7 +20,7 @@ const App: React.FC = () => {
     return (
       <>
         <h1>Houston Breweries</h1>
-        <BreweriesList breweryList={breweryList} />
+        {displayMap ? <MapView selectedBrewery={breweryList[0]} /> : <BreweriesList breweryList={breweryList} />}
       </>
     );
 }
