@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { getAllHoustonBreweries } from '../server/controllers/getAllHoustonBreweries';
 import { BreweriesList } from './components/BreweriesList';
 import { MapView } from './components/MapView';
-import { BreweryType } from './types/types';
+import { BreweryType } from './types/Brewery.type';
 
 const App: React.FC = () => {
   const [ breweryList, setBreweryList ] = useState([]);
-  const [ displayMap, setDisplayMap ] = useState(false);
 
   useEffect(() => {
     getHoustonBreweries();
@@ -21,7 +20,7 @@ const App: React.FC = () => {
     return (
       <>
         <h1>Houston Breweries</h1>
-        {displayMap ? <MapView selectedBrewery={breweryList[0]} /> : <BreweriesList breweryList={breweryList} />}
+        {<BreweriesList breweryList={breweryList} />}
       </>
     );
 }

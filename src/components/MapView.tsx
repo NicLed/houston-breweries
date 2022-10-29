@@ -1,14 +1,18 @@
-import * as React from 'react';
-import { BreweryType } from '../types/types';
+import React, { Dispatch, SetStateAction } from 'react';
+import { BreweryType } from '../types/Brewery.type';
 
 type MapViewProps = {
-  selectedBrewery: BreweryType
+  selectedBrewery: BreweryType,
+  setDisplayMap: Dispatch<SetStateAction<boolean>>,
 }
 
-export const MapView: React.FC<MapViewProps> = ({ selectedBrewery }) => {
+export const MapView: React.FC<MapViewProps> = ({ selectedBrewery, setDisplayMap }) => {
+
   return (
     <>
-      <div>selectedBrewery.name</div>
+      <button onClick={() => {setDisplayMap(false)}}>Go back to Brewery List</button>
+      <div>{selectedBrewery.name}</div>
+
     </>
   )
 }

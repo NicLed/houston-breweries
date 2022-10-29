@@ -1,14 +1,17 @@
-import React from 'react';
-import { BreweryType } from '../types/types';
+import React, { Dispatch, SetStateAction } from 'react';
+import { BreweryType } from '../types/Brewery.type';
 
 type BreweryProps = {
   brewery: BreweryType,
+  setSelectedBrewery: Dispatch<SetStateAction<BreweryType>>,
+  setDisplayMap: Dispatch<SetStateAction<boolean>>,
 }
 
-export const Brewery: React.FC<BreweryProps> = ({ brewery }) => {
+export const Brewery: React.FC<BreweryProps> = ({ brewery, setSelectedBrewery, setDisplayMap }) => {
 
   const handleClick = () => {
-    console.log("Clicked")
+    setSelectedBrewery(brewery);
+    setDisplayMap(true);
   }
 
   const zipCode = brewery.postal_code.slice(0, 5);
