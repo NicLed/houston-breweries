@@ -14,16 +14,27 @@ export const BreweriesList: React.FC<BreweriesListProps> = ({
   const [displayMap, setDisplayMap] = useState(false);
   const [selectedBrewery, setSelectedBrewery] = useState({} as BreweryType);
 
+  const notInPlanningStages = breweryList.filter((brewery) => {
+    return brewery.brewery_type !== 'planning';
+  });
+
+  const breweryNameClean = (brewery: BreweryType) =>
+  {return brewery.name.includes('â') ? brewery.name.slice(0, brewery.name.indexOf('â') - 1) : brewery.name;}
+
   return (
     <>
       {!displayMap ? (
-        breweryList.map((brewery, i) => {
+        notInPlanningStages.map((brewery, i) => {
+
+
+
           return (
             <Brewery
               brewery={brewery}
               key={i}
               setSelectedBrewery={setSelectedBrewery}
               setDisplayMap={setDisplayMap}
+              breweryNameClean={breweryNameClean}
             />
           );
         })
@@ -31,6 +42,7 @@ export const BreweriesList: React.FC<BreweriesListProps> = ({
         <MapView
           selectedBrewery={selectedBrewery}
           setDisplayMap={setDisplayMap}
+          breweryNameClean={breweryNameClean}
         />
       )}
     </>
