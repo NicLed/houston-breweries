@@ -1,4 +1,10 @@
 import React, { Dispatch, SetStateAction } from "react";
+import {
+  BreweryContainer,
+  BreweryLink,
+  BreweryTitle,
+  TextContainer,
+} from "../styles";
 import { BreweryType } from "../types/Brewery.type";
 
 type BreweryProps = {
@@ -22,18 +28,16 @@ export const Brewery: React.FC<BreweryProps> = ({
   const cleanName = breweryNameClean(brewery);
 
   return (
-    <div onClick={handleClick}>
-      <blockquote>
-        <div>{cleanName}</div>
-        <div>Brewery Type: {brewery.brewery_type}</div>
-        <div>{brewery.street && brewery.street}</div>
-        <div>
-          {brewery.city}, {brewery.state}, {brewery.postal_code.slice(0, 5)}
-        </div>
-        <a href={brewery.website_url} target="_blank">
-          {brewery.website_url}
-        </a>
-      </blockquote>
-    </div>
+    <BreweryContainer onClick={handleClick}>
+      <BreweryTitle>{cleanName}</BreweryTitle>
+      <TextContainer>Brewery Type: {brewery.brewery_type}</TextContainer>
+      <TextContainer>{brewery.street && brewery.street}</TextContainer>
+      <TextContainer>
+        {brewery.city}, {brewery.state}, {brewery.postal_code.slice(0, 5)}
+      </TextContainer>
+      <BreweryLink href={brewery.website_url} target="_blank">
+        {brewery.website_url}
+      </BreweryLink>
+    </BreweryContainer>
   );
 };
