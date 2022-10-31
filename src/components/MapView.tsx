@@ -9,17 +9,17 @@ import {
   MapViewContainer,
   TextContainer,
 } from "../styles";
+import { cleanBreweryName } from "../helpers/cleanBreweryName";
+import { capitalizeBreweryType } from "../helpers/capitalizeBreweryType";
 
 type MapViewProps = {
   selectedBrewery: BreweryType;
   setDisplayMap: Dispatch<SetStateAction<boolean>>;
-  breweryNameClean: (arg0: BreweryType) => string;
 };
 
 export const MapView: React.FC<MapViewProps> = ({
   selectedBrewery,
   setDisplayMap,
-  breweryNameClean,
 }) => {
   const [latitude, setLatitude] = useState(selectedBrewery.latitude);
   const [longitude, setLongitude] = useState(selectedBrewery.longitude);
@@ -47,13 +47,11 @@ export const MapView: React.FC<MapViewProps> = ({
     }
   };
 
-  const cleanName = breweryNameClean(selectedBrewery);
-
   return (
     <MapViewContainer>
-      <BreweryTitle>{cleanName}</BreweryTitle>
+      <BreweryTitle>{cleanBreweryName(selectedBrewery)}</BreweryTitle>
       <TextContainer>
-        Brewery Type: {selectedBrewery.brewery_type}
+        <strong>Brewery Type:</strong> {capitalizeBreweryType(selectedBrewery)}
       </TextContainer>
       <TextContainer>
         {selectedBrewery.street && selectedBrewery.street}
@@ -61,6 +59,9 @@ export const MapView: React.FC<MapViewProps> = ({
       <TextContainer>
         {selectedBrewery.city}, {selectedBrewery.state},{" "}
         {selectedBrewery.postal_code.slice(0, 5)}
+      </TextContainer>
+      <TextContainer>
+        <strong>Phone:</strong> {selectedBrewery.phone}
       </TextContainer>
       <BreweryLink href={selectedBrewery.website_url} target="_blank">
         {selectedBrewery.website_url}

@@ -4,7 +4,7 @@ import { getAllHoustonBreweries } from "../server/controllers/getAllHoustonBrewe
 import { BreweriesList } from "./components/BreweriesList";
 import { MapView } from "./components/MapView";
 import { BreweryType } from "./types/Brewery.type";
-import { MainContainer, PageHeader, Spacing } from "./styles";
+import { MainContainer, PageHeader } from "./styles";
 
 const App: React.FC = () => {
   const [breweryList, setBreweryList] = useState([]);
@@ -21,7 +21,6 @@ const App: React.FC = () => {
   return (
     <MainContainer>
       <PageHeader>Houston Breweries</PageHeader>
-      <Spacing></Spacing>
       <BreweriesList breweryList={breweryList} />
     </MainContainer>
   );

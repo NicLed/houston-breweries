@@ -22,7 +22,6 @@ export const PageHeader = styled.h1`
   border-radius: 2px;
   font-size: 55px;
   font-family: "Goblin One", cursive;
-  position: fixed;
 `;
 
 export const BreweryContainer = styled.div`
@@ -37,6 +36,9 @@ export const BreweryContainer = styled.div`
   border-bottom: 1px solid grey;
   border-radius: 2px;
   margin-top: 5px;
+  &:hover {
+    background-color: #bfb5a3;
+  }
 `;
 
 export const MapViewContainer = styled.div`
@@ -48,6 +50,8 @@ export const MapViewContainer = styled.div`
   justify-content: center;
   border-radius: 2px;
   margin-top: 5px;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%
 `;
 
 export const MapContainer = styled.div`
@@ -66,7 +70,7 @@ export const BackButton = styled.button`
   border: 2px solid;
   border-radius: 2px;
   color: #e0861c;
-  margin: 25px 0 25px 0;
+  margin-top: 25px;
   background-color: #dacaad;
 `;
 
@@ -84,7 +88,3 @@ export const TextContainer = styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 100;
 `;
-
-export const Spacing = styled.div`
-  height: 200px;
-`

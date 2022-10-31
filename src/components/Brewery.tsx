@@ -1,4 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { capitalizeBreweryType } from "../helpers/capitalizeBreweryType";
+import { cleanBreweryName } from "../helpers/cleanBreweryName";
 import {
   BreweryContainer,
   BreweryLink,
@@ -11,29 +13,30 @@ type BreweryProps = {
   brewery: BreweryType;
   setSelectedBrewery: Dispatch<SetStateAction<BreweryType>>;
   setDisplayMap: Dispatch<SetStateAction<boolean>>;
-  breweryNameClean: (arg0: BreweryType) => string;
 };
 
 export const Brewery: React.FC<BreweryProps> = ({
   brewery,
   setSelectedBrewery,
   setDisplayMap,
-  breweryNameClean,
 }) => {
   const handleClick = () => {
     setSelectedBrewery(brewery);
     setDisplayMap(true);
   };
 
-  const cleanName = breweryNameClean(brewery);
-
   return (
     <BreweryContainer onClick={handleClick}>
-      <BreweryTitle>{cleanName}</BreweryTitle>
-      <TextContainer>Brewery Type: {brewery.brewery_type}</TextContainer>
+      <BreweryTitle>{cleanBreweryName(brewery)}</BreweryTitle>
+      <TextContainer>
+        <strong>Brewery Type:</strong> {capitalizeBreweryType(brewery)}
+      </TextContainer>
       <TextContainer>{brewery.street && brewery.street}</TextContainer>
       <TextContainer>
         {brewery.city}, {brewery.state}, {brewery.postal_code.slice(0, 5)}
+      </TextContainer>
+      <TextContainer>
+        <strong>Phone:</strong> {brewery.phone}
       </TextContainer>
       <BreweryLink href={brewery.website_url} target="_blank">
         {brewery.website_url}

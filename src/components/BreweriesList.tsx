@@ -18,12 +18,6 @@ export const BreweriesList: React.FC<BreweriesListProps> = ({
     return brewery.brewery_type !== "planning";
   });
 
-  const breweryNameClean = (brewery: BreweryType) => {
-    return brewery.name.includes("â")
-      ? brewery.name.slice(0, brewery.name.indexOf("â") - 1)
-      : brewery.name;
-  };
-
   return (
     <>
       {!displayMap ? (
@@ -34,7 +28,6 @@ export const BreweriesList: React.FC<BreweriesListProps> = ({
               key={i}
               setSelectedBrewery={setSelectedBrewery}
               setDisplayMap={setDisplayMap}
-              breweryNameClean={breweryNameClean}
             />
           );
         })
@@ -42,7 +35,6 @@ export const BreweriesList: React.FC<BreweriesListProps> = ({
         <MapView
           selectedBrewery={selectedBrewery}
           setDisplayMap={setDisplayMap}
-          breweryNameClean={breweryNameClean}
         />
       )}
     </>

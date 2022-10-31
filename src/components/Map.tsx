@@ -23,7 +23,7 @@ export const Map: React.FC<MapProps> = ({ latitude, longitude }) => {
       {latitude !== "0" && longitude !== "0" ? (
         <GoogleMapReact
           bootstrapURLKeys={{ key: googleMapsAPIKey }}
-          defaultCenter={defaultProps.center}
+          center={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
           <MapMarker latitude={latitude} longitude={longitude} />
