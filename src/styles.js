@@ -88,3 +88,7 @@ export const TextContainer = styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 100;
 `;
+
+export const BoldText = styled.span`
+  font-weight: 400;
+`

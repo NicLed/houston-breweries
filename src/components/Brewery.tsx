@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { capitalizeBreweryType } from "../helpers/capitalizeBreweryType";
 import { cleanBreweryName } from "../helpers/cleanBreweryName";
 import {
+  BoldText,
   BreweryContainer,
   BreweryLink,
   BreweryTitle,
@@ -29,14 +30,14 @@ export const Brewery: React.FC<BreweryProps> = ({
     <BreweryContainer onClick={handleClick}>
       <BreweryTitle>{cleanBreweryName(brewery)}</BreweryTitle>
       <TextContainer>
-        <strong>Brewery Type:</strong> {capitalizeBreweryType(brewery)}
+        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(brewery)}
       </TextContainer>
       <TextContainer>{brewery.street && brewery.street}</TextContainer>
       <TextContainer>
         {brewery.city}, {brewery.state}, {brewery.postal_code.slice(0, 5)}
       </TextContainer>
       <TextContainer>
-        <strong>Phone:</strong> {brewery.phone}
+        <BoldText>Phone:</BoldText> {brewery.phone}
       </TextContainer>
       <BreweryLink href={brewery.website_url} target="_blank">
         {brewery.website_url}

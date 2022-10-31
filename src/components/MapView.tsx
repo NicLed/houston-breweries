@@ -4,6 +4,7 @@ import { getBreweryCoordinates } from "../../server/controllers/getBreweryCoordi
 import { Map } from "./Map";
 import {
   BackButton,
+  BoldText,
   BreweryLink,
   BreweryTitle,
   MapViewContainer,
@@ -51,7 +52,7 @@ export const MapView: React.FC<MapViewProps> = ({
     <MapViewContainer>
       <BreweryTitle>{cleanBreweryName(selectedBrewery)}</BreweryTitle>
       <TextContainer>
-        <strong>Brewery Type:</strong> {capitalizeBreweryType(selectedBrewery)}
+        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(selectedBrewery)}
       </TextContainer>
       <TextContainer>
         {selectedBrewery.street && selectedBrewery.street}
@@ -61,7 +62,7 @@ export const MapView: React.FC<MapViewProps> = ({
         {selectedBrewery.postal_code.slice(0, 5)}
       </TextContainer>
       <TextContainer>
-        <strong>Phone:</strong> {selectedBrewery.phone}
+        <BoldText>Phone:</BoldText> {selectedBrewery.phone}
       </TextContainer>
       <BreweryLink href={selectedBrewery.website_url} target="_blank">
         {selectedBrewery.website_url}
@@ -72,7 +73,7 @@ export const MapView: React.FC<MapViewProps> = ({
           setDisplayMap(false);
         }}
       >
-        Go back to Brewery List
+        Back to Breweries
       </BackButton>
     </MapViewContainer>
   );
