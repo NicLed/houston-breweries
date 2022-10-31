@@ -53,13 +53,18 @@ export const MapView: React.FC<MapViewProps> = ({
     <MapViewContainer>
       <BreweryTitle>{cleanName}</BreweryTitle>
       <TextContainer>
+        Brewery Type: {selectedBrewery.brewery_type}
+      </TextContainer>
+      <TextContainer>
         {selectedBrewery.street && selectedBrewery.street}
       </TextContainer>
       <TextContainer>
         {selectedBrewery.city}, {selectedBrewery.state},{" "}
         {selectedBrewery.postal_code.slice(0, 5)}
       </TextContainer>
-      <BreweryLink>{selectedBrewery.website_url}</BreweryLink>
+      <BreweryLink href={selectedBrewery.website_url} target="_blank">
+        {selectedBrewery.website_url}
+      </BreweryLink>
       <Map latitude={latitude} longitude={longitude} />
       <BackButton
         onClick={() => {

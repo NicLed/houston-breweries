@@ -4,8 +4,6 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
   border-top: 0;
@@ -13,7 +11,7 @@ export const MainContainer = styled.div`
 
 export const PageHeader = styled.h1`
   color: #393f09;
-  background-color: #f9f6ee;
+  background-color: #dacaad;
   height: 200px;
   width: 100%;
   display: flex;
@@ -24,6 +22,7 @@ export const PageHeader = styled.h1`
   border-radius: 2px;
   font-size: 55px;
   font-family: "Goblin One", cursive;
+  position: fixed;
 `;
 
 export const BreweryContainer = styled.div`
@@ -33,7 +32,7 @@ export const BreweryContainer = styled.div`
   justify-content: center;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
-  background-color: #f9f6ee;
+  background-color: #dacaad;
   width: 50%;
   border-bottom: 1px solid grey;
   border-radius: 2px;
@@ -41,7 +40,7 @@ export const BreweryContainer = styled.div`
 `;
 
 export const MapViewContainer = styled.div`
-  background-color: #f9f6ee;
+  background-color: #dacaad;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -68,6 +67,7 @@ export const BackButton = styled.button`
   border-radius: 2px;
   color: #e0861c;
   margin: 25px 0 25px 0;
+  background-color: #dacaad;
 `;
 
 export const BreweryTitle = styled.div`
@@ -84,3 +84,7 @@ export const TextContainer = styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 100;
 `;
+
+export const Spacing = styled.div`
+  height: 200px;
+`
