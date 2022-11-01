@@ -32,7 +32,7 @@ export const BreweryContainer = styled.div`
   padding-top: 2.5%;
   padding-bottom: 2.5%;
   background-color: #dacaad;
-  width: 50%;
+  width: 70%;
   border-bottom: 1px solid grey;
   border-radius: 2px;
   margin-top: 5px;
