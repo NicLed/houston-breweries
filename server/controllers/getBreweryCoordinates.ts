@@ -2,16 +2,16 @@ const axios = require('axios');
 import { googleMapsAPIKey } from '../../config';
 
 export const getBreweryCoordinates = (address: string, city: string, state: string) => {
-  const formattedAddress = removeWhiteSpace(address);
-  const formattedCity = removeWhiteSpace(city);
-  const formattedState = removeWhiteSpace(state);
+  const formattedAddress = replaceWhiteSpace(address);
+  const formattedCity = replaceWhiteSpace(city);
+  const formattedState = replaceWhiteSpace(state);
 
   const mapURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress},+${formattedCity},+${formattedState}&key=${googleMapsAPIKey}`;
 
   return axios.get(mapURL);
 };
 
-const removeWhiteSpace = (string: string) => {
+const replaceWhiteSpace = (string: string) => {
   let formattedString = string;
 
   if (string !== null && string.includes(' ')) {
