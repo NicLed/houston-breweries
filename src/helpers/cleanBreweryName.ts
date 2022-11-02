@@ -1,7 +1,5 @@
-import { BreweryType } from "../types/Brewery.type";
-
-export const cleanBreweryName = (brewery: BreweryType) => {
-  return brewery.name.includes("â")
-    ? brewery.name.slice(0, brewery.name.indexOf("â") - 1)
-    : brewery.name;
+export const cleanBreweryName = (breweryName: string) => {
+  return breweryName.includes("â")
+    ? breweryName.slice(0, breweryName.indexOf("â") - 1)
+    : breweryName;
 };

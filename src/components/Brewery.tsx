@@ -9,6 +9,7 @@ import {
   TextContainer,
 } from "../styles";
 import { BreweryType } from "../types/Brewery.type";
+import { formatPhoneNumber } from "../helpers/formatPhoneNumber";
 
 type BreweryProps = {
   brewery: BreweryType;
@@ -28,17 +29,17 @@ export const Brewery: React.FC<BreweryProps> = ({
 
   return (
     <BreweryContainer onClick={handleClick}>
-      <BreweryTitle>{cleanBreweryName(brewery)}</BreweryTitle>
+      <BreweryTitle>{cleanBreweryName(brewery.name)}</BreweryTitle>
       <TextContainer>
-        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(brewery)}
+        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(brewery.brewery_type)}
       </TextContainer>
       <TextContainer>{brewery.street && brewery.street}</TextContainer>
       <TextContainer>
         {brewery.city}, {brewery.state}, {brewery.postal_code.slice(0, 5)}
       </TextContainer>
-      <TextContainer>
-        <BoldText>Phone:</BoldText> {brewery.phone}
-      </TextContainer>
+      {brewery.phone && <TextContainer>
+        <BoldText>Phone:</BoldText> {formatPhoneNumber(brewery.phone)}
+      </TextContainer>}
       <BreweryLink href={brewery.website_url} target="_blank">
         {brewery.website_url}
       </BreweryLink>

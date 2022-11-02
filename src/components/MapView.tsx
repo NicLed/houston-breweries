@@ -12,6 +12,7 @@ import {
 } from "../styles";
 import { cleanBreweryName } from "../helpers/cleanBreweryName";
 import { capitalizeBreweryType } from "../helpers/capitalizeBreweryType";
+import { formatPhoneNumber } from "../helpers/formatPhoneNumber";
 
 type MapViewProps = {
   selectedBrewery: BreweryType;
@@ -50,9 +51,9 @@ export const MapView: React.FC<MapViewProps> = ({
 
   return (
     <MapViewContainer>
-      <BreweryTitle>{cleanBreweryName(selectedBrewery)}</BreweryTitle>
+      <BreweryTitle>{cleanBreweryName(selectedBrewery.name)}</BreweryTitle>
       <TextContainer>
-        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(selectedBrewery)}
+        <BoldText>Brewery Type:</BoldText> {capitalizeBreweryType(selectedBrewery.brewery_type)}
       </TextContainer>
       <TextContainer>
         {selectedBrewery.street && selectedBrewery.street}
@@ -61,9 +62,9 @@ export const MapView: React.FC<MapViewProps> = ({
         {selectedBrewery.city}, {selectedBrewery.state},{" "}
         {selectedBrewery.postal_code.slice(0, 5)}
       </TextContainer>
-      <TextContainer>
-        <BoldText>Phone:</BoldText> {selectedBrewery.phone}
-      </TextContainer>
+      {selectedBrewery.phone && <TextContainer>
+        <BoldText>Phone:</BoldText> {formatPhoneNumber(selectedBrewery.phone)}
+      </TextContainer>}
       <BreweryLink href={selectedBrewery.website_url} target="_blank">
         {selectedBrewery.website_url}
       </BreweryLink>
