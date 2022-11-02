@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server && webpack --mode production",
-    "server-dev": "nodemon server",
+    "start": "npm run server-dev && npm run build-prod",
+    "server-dev": "node server",
     "build-dev": "webpack -w --mode development",
     "build-prod": "webpack --mode production",
     "clean": "rm dist/bundle.js"
