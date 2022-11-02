@@ -40,7 +40,7 @@ export const Brewery: React.FC<BreweryProps> = ({
       {brewery.phone && <TextContainer>
         <BoldText>Phone:</BoldText> {formatPhoneNumber(brewery.phone)}
       </TextContainer>}
-      <BreweryLink href={brewery.website_url} target="_blank">
+      <BreweryLink href={brewery.website_url} target="_blank" onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {event.stopPropagation()}}>
         {brewery.website_url}
       </BreweryLink>
     </BreweryContainer>
