@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "webpack --mode production",
+    "server-dev": "nodemon server",
     "build-dev": "webpack -w --mode development",
     "build-prod": "webpack --mode production",
     "clean": "rm dist/bundle.js"
